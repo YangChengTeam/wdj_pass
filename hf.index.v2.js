@@ -229,8 +229,8 @@ async function android() {
 (async () => {
     client = redis.createClient({
         port: 6389,
-        password: "MYdej89dj&euGJfkwhdstakerkuiRjf^fye",
-        host: "59.45.79.54",
+        password: "xxxxxxxxxxxxxx",
+        host: "xx.xx.xx.xx",
     })
 
     client.on('ready', async function () {
