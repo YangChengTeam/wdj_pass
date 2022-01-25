@@ -126,17 +126,28 @@ async function get_android_app_info_loop(package) {
     }
 }
 
-function is_detect_code($, html){
+function rget(){
+   return new Promise((r,j)=>{
+        client.get(sync_key, async (err, val)=>{
+            if(err){
+                j()
+                return
+            }
+            r(val)
+        })
+   })
+}
+
+async function is_detect_code($, html){
     if ($(".app-icon").length == 0 && $(".app-name").length == 0) {    
         console.log("code detect: "+html.indexOf("霸下通用"))  
         if (html.indexOf("霸下通用") != -1) {
-            client.get(sync_key, async (val)=>{
-                if(val == 1){
-                    client.set(sync_key, 0)
-                    await exec_cmd("python wdj_code_pass.py")
-                    client.set(sync_key, 1);
-                }
-            })
+            let val = await rget()
+            if(val == 1){
+                client.set(sync_key, 0, redis.print)
+                await exec_cmd("python wdj_code_pass.py")
+                client.set(sync_key, 1, redis.print)
+            }
             return true        
         }
         return false
@@ -229,12 +240,12 @@ async function android() {
 (async () => {
     client = redis.createClient({
         port: 6389,
-        password: "xxxxxxxxxxxxxx",
+        password: "xxxxxxxxx",
         host: "xx.xx.xx.xx",
     })
 
     client.on('ready', async function () {
-        client.set(sync_key, 1)
+        client.set(sync_key, 1, redis.print)
         await android()
     })
 
