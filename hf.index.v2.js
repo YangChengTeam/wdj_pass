@@ -139,7 +139,7 @@ function is_detect_code($, html){
             })
             return true        
         }
-        return true
+        return false
     }
     return false
 }
