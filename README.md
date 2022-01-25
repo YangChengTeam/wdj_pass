@@ -15,5 +15,5 @@
   - git clone https://github.com/YangChengTeam/wdj_pass.git
   - cd wdj_pass
   - npm i --registry https://registry.npm.taobao.org
-  - pip install -r requirement.txt -i  http://mirrors.aliyun.com/pypi/simple/
+  - pip install -r requirement.txt -i  https://mirrors.aliyun.com/pypi/simple/
   - test.bat
