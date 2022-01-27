@@ -168,7 +168,7 @@ async function get_wdj_app_info(package) {
 
     data.package = package
     if ($) {   
-        if (is_detect_code($, html)) {     
+        if (await is_detect_code($, html)) {     
             client.zadd(redis_key, 0, package)  
             return data
         }
@@ -240,8 +240,8 @@ async function android() {
 (async () => {
     client = redis.createClient({
         port: 6389,
-        password: "xxxxxxxxx",
-        host: "xx.xx.xx.xx",
+        password: "xxxxxxxxxxx",
+        host: "xxxxxxxxxxx",
     })
 
     client.on('ready', async function () {
