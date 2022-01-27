@@ -174,13 +174,13 @@ async function get_wdj_app_info(package) {
         }
         data.app_url = url
         data.app_name = $("span.title").eq(0).text()
-        let info_list_dts = $(".infos-list").eq(0).find("dt")
 
         data.score = $(".love i").eq(0).text() || ""
         data.comment_num = $(".comment-open").eq(0).text() || 0
         data.down_num = $(".install i").eq(0).text() || 0
         data.developer = $(".dev-sites").eq(0).text() || ""
 
+        let info_list_dts = $(".infos-list").eq(0).find("dt")
         for (let i = 0; i < info_list_dts.length; i++) {
             let dtObj = info_list_dts.eq(i)
             if (dtObj.text() == "版本") {
@@ -240,8 +240,8 @@ async function android() {
 (async () => {
     client = redis.createClient({
         port: 6389,
-        password: "xxxxxxxxxxx",
-        host: "xxxxxxxxxxx",
+        password: "xxxxxxxxxxxxxxxxxxxxxxxx",
+        host: "xx.xx.xx.xx",
     })
 
     client.on('ready', async function () {
